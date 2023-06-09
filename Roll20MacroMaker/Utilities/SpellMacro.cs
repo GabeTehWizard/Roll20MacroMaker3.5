@@ -152,7 +152,7 @@ namespace Roll20MacroMaker.Utilities
         public static string FormatSpellDC(SavingThrow savingThrow, SavingThrowFailure savingThrowFailure, SavingThrowFormula savingThrowFormula, int spellLevel)
         {
             if (savingThrow == null || savingThrowFailure == null || savingThrowFormula == null) return string.Empty;
-            return "{{Spell DC:= " + "[[@{" + savingThrowFormula + "} + " + spellLevel + "]] }} ";
+            return "{{Spell DC:= " + "[[@{" + GetDCVariable(savingThrowFormula) + "} + " + spellLevel + "]] }} ";
         }
 
         public static string GetDCVariable(SavingThrowFormula savingThrowFormula)

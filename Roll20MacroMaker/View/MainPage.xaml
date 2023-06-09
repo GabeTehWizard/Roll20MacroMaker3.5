@@ -14,422 +14,473 @@
     <ScrollViewer>
 
         <Grid>
-
-            <StackPanel Width="400">
-
-                <Grid VerticalAlignment="Center"
-                      HorizontalAlignment="Stretch">
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="2*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <TextBlock  Text="Name: "
-                                VerticalAlignment="Center"/>
-
-                    <TextBox    VerticalAlignment="Center"
-                                Grid.Column="1"
-                                PlaceholderText="Arrow of Dusk"
-                                x:Name="txtSpellName"/>
-                </Grid>
-
-                <Grid VerticalAlignment="Center"
-                      HorizontalAlignment="Stretch">
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="2*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <TextBlock  Text="School: "
-                                VerticalAlignment="Center"/>
-
-                    <ComboBox Grid.Column="1"
-                              HorizontalAlignment="Stretch"
-                              x:Name="cboSpellSchool"
-                              DisplayMemberPath="Name"
-                              SelectionChanged="CboSpellSchoolChanged"/>
-                </Grid>
-
-                <Grid VerticalAlignment="Center"
-                      HorizontalAlignment="Stretch">
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="2*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="32"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-
-                    <TextBlock  Text="Sub-School(s): "
-                                VerticalAlignment="Center"/>
-
-                    <TextBlock x:Name="lblEmptySubSchool"
-                               Grid.Row="1"
-                               Grid.Column="1"
-                               Height="0"
-                               Text="Selected school has no subschools."/>
-
-                    <ListView x:Name="lvSubSchool" 
-                              SelectionMode="Multiple"
-                              Grid.Row="1"
-                              Grid.Column="1"/>
-
-                    <StackPanel Grid.Column="1"
-                                Orientation="Horizontal">
-
-                        <RadioButton Content="Show"
-                                     GroupName="radSubSchools"
-                                     Checked="RadSubSchoolChecked"
-                                     x:Name="radSubSchoolShow"/>
-
-                        <RadioButton Content="Hide"
-                                     IsChecked="True"
-                                     GroupName="radSubSchools"
-                                     Checked="RadSubSchoolChecked"
-                                     x:Name="radSubSchoolHide"/>
-                    </StackPanel>
-                </Grid>
-
-                <Grid VerticalAlignment="Center"
-                      HorizontalAlignment="Stretch">
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="2*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="32"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-
-                    <TextBlock  Text="Spell Descriptor(s): "
-                                VerticalAlignment="Center"/>
-
-                    <ListView x:Name="lvSpellDescriptor" 
-                              SelectionMode="Multiple"
-                              Grid.Column="1"
-                              Grid.ColumnSpan="2"
-                              Grid.Row="1"
-                              DisplayMemberPath="Name"/>
-
-                    <StackPanel Grid.Column="1"
-                                Orientation="Horizontal">
-
-                        <RadioButton Content="Show"
-                                     GroupName="radSpellDescriptors"
-                                     Checked="RadSpellDescriptorChecked"
-                                     x:Name="radSepllDescriptorShow"/>
-
-                        <RadioButton Content="Hide"
-                                     IsChecked="True"
-                                     GroupName="radSpellDescriptors"
-                                     Checked="RadSpellDescriptorChecked"
-                                     x:Name="radSepllDescriptorHide"/>
-                    </StackPanel>
-                </Grid>
-
-                <Grid VerticalAlignment="Center"
-                      HorizontalAlignment="Stretch">
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="2*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <TextBlock  Text="Spell Level: "
-                                VerticalAlignment="Center"/>
-
-                    <ComboBox Grid.Column="1"
-                              HorizontalAlignment="Stretch"
-                              x:Name="cboSpellLevel"
-                              DisplayMemberPath="Name"/>
-                </Grid>
-
-                <Grid VerticalAlignment="Center"
-                      HorizontalAlignment="Stretch">
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="2*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <TextBlock  Text="Caster Class: "
-                                VerticalAlignment="Center"/>
-
-                    <ComboBox Grid.Column="1"
-                              HorizontalAlignment="Stretch"
-                              x:Name="cboCasterClass"
-                              DisplayMemberPath="DisplayName"/>
-
-                </Grid>
-
-                <Grid VerticalAlignment="Center"
-                      HorizontalAlignment="Stretch">
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="2*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <TextBlock  Text="Components: "
-                                VerticalAlignment="Center"/>
-
-                    <TextBox    VerticalAlignment="Center"
-                                Grid.Column="1"
-                                PlaceholderText="V, S, M (a drop of blood), F, DF, XP"
-                                x:Name="txtComponents"/>
-                </Grid>
-
-                <Grid VerticalAlignment="Center"
-                      HorizontalAlignment="Stretch">
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="2*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <TextBlock  Text="Casting Time: "
-                                VerticalAlignment="Center"/>
-
-                    <ComboBox   VerticalAlignment="Center"
-                                Grid.Column="1"
-                                HorizontalAlignment="Stretch"
-                                x:Name="cboCastingTime"
-                                DisplayMemberPath="Name"/>
-                </Grid>
-
-                <Grid VerticalAlignment="Center"
-                      HorizontalAlignment="Stretch"
-                      x:Name="grdSpellRange">
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width=".5*"
-                                          x:Name="grdRangeColumn2"/>
-                        <ColumnDefinition Width="1.5*"
-                                          x:Name="grdRangeColumn3"/>
-                    </Grid.ColumnDefinitions>
-
-                    <TextBlock  Text="Range: "
-                                VerticalAlignment="Center"/>
-
-                    <TextBox    VerticalAlignment="Center"
-                                PlaceholderText="15"
-                                Grid.Column="1"
-                                x:Name="txtRangeFeet"/>
-
-                    <ComboBox   x:Name="cboSpellRange"
-                                Grid.Column="2"
-                                HorizontalAlignment="Stretch"
-                                SelectionChanged="CboSpellRangeChanged"
-                                DisplayMemberPath="Name"/>
-                </Grid>
-
-                <Grid VerticalAlignment="Center"
-                      HorizontalAlignment="Stretch">
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="2*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <TextBlock  Text="Aim: "
-                                VerticalAlignment="Center"/>
-
-                    <TextBox    VerticalAlignment="Center"
-                                PlaceholderText="Target(s), Effect, Ray, Area, Cone, etc."
-                                Grid.Column="1"
-                                x:Name="txtAim"/>
-                </Grid>
-
-                <Grid VerticalAlignment="Center"
-                      HorizontalAlignment="Stretch">
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="2*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <TextBlock  Text="Duration: "
-                                VerticalAlignment="Center"/>
-
-                    <TextBox    VerticalAlignment="Center"
-                                Grid.Column="1"
-                                PlaceholderText="1 Minute/Caster Level"
-                                x:Name="txtDuration"/>
-                </Grid>
-
-                <Grid VerticalAlignment="Center"
-                      HorizontalAlignment="Stretch">
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width=".8*"/>
-                        <ColumnDefinition Width="1.2*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <TextBlock  Text="Saving Throw: "
-                                VerticalAlignment="Center"/>
-
-                    <ComboBox   Grid.Column="1"
-                                HorizontalAlignment="Stretch"
-                                x:Name="cboSaveType"
-                                DisplayMemberPath="Name"/>
-
-                    <ComboBox   Grid.Column="2"
-                                HorizontalAlignment="Stretch"
-                                x:Name="cboSavingThrowFailure"
-                                DisplayMemberPath="Name"/>
-                </Grid>
-
-                <Grid VerticalAlignment="Center"
-                      HorizontalAlignment="Stretch">
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <TextBlock  Text="DC Formula: "
-                                VerticalAlignment="Center"/>
-
-                    <StackPanel Grid.Column="1"
-                                Grid.ColumnSpan="2"
-                                Orientation="Horizontal">
-
-                        <RadioButton Content="Spell / SLA"
-                                     IsChecked="True"
-                                     GroupName="radDCFormula"
-                                     x:Name="radDCSpell"/>
-
-                        <RadioButton Content="Supernatural"
-                                     GroupName="radDCFormula"
-                                     x:Name="radDCSupernatural"/>
-                    </StackPanel>
-                </Grid>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height=".2*"/>
+                <RowDefinition Height=".8*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0">
                 
-                <Grid VerticalAlignment="Center"
-                      HorizontalAlignment="Stretch">
+                <TextBlock  Text="Roll 20 3.5 Spell Macros"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            FontSize="70"/>
 
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="2*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <TextBlock  Text="Spell Resistance: "
-                                VerticalAlignment="Center"/>
-
-                    <ComboBox   VerticalAlignment="Center"
-                                HorizontalAlignment="Stretch"
-                                Grid.Column="1"
-                                x:Name="cboSpellResistance">
-                        <ComboBoxItem Content="Yes"  Tag="Yes" IsSelected="True"/>
-                        <ComboBoxItem Content="No" Tag="No"/>
-                    </ComboBox>
-                </Grid>
-
-                <Grid VerticalAlignment="Center"
-                      HorizontalAlignment="Stretch">
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="133*"/>
-                        <ColumnDefinition Width="69*"/>
-                        <ColumnDefinition Width="199*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <TextBlock  Text="Attack: "
-                                VerticalAlignment="Center"
-                                x:Name="txtAttack"/>
-
-                    <ComboBox   HorizontalAlignment="Stretch"
-                                Grid.Column="1"
-                                x:Name="cboAttackRoll"
-                                DisplayMemberPath="Name" Grid.ColumnSpan="2" VerticalAlignment="Center">
-                        <ComboBoxItem Content="Melee" Tag="melee"/>
-                        <ComboBoxItem Content="Ranged" Tag="ranged"/>
-                    </ComboBox>
-                </Grid>
-
-                <Grid VerticalAlignment="Center"
-                      HorizontalAlignment="Stretch">
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1.5*"/>
-                        <ColumnDefinition Width=".5*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <TextBlock  Text="Damage: "
-                                VerticalAlignment="Center"/>
-
-                    <TextBox    VerticalAlignment="Stretch"
-                                Grid.Column="1"
-                                Height="Auto"
-                                PlaceholderText="@{casterLevel}d6, 1d4 + 5"
-                                x:Name="txtDamage"/>
-
-                    <ComboBox x:Name="cboDamageType"
-                              Grid.Column="2"
-                              HorizontalAlignment="Stretch"
-                              DisplayMemberPath="Name"/>
-                </Grid>
-
-                <Grid VerticalAlignment="Center"
-                      HorizontalAlignment="Stretch">
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="2*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <TextBlock  Text="Description: "
-                                VerticalAlignment="Center" Grid.ColumnSpan="2"/>
-
-                    <TextBox    TextWrapping="Wrap"
-                                Grid.Column="1"
-                                Height="Auto"
-                                x:Name="txtDescription"/>
-                </Grid>
-
-                <Grid VerticalAlignment="Center"
-                      HorizontalAlignment="Stretch">
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Button Content="Create"
-                            Grid.Column="0"
-                            HorizontalAlignment="Stretch"
-                            Click="MacroCreateClick"
-                            x:Name="btnCreateMacro"/>
-                    <Button Content="Clear"
-                            Grid.Column="1"
-                            HorizontalAlignment="Stretch"/>
-                </Grid>
-
-                <Grid VerticalAlignment="Center"
-                      HorizontalAlignment="Stretch">
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="29*"/>
-                        <ColumnDefinition Width="71*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <TextBox  Text="No Clicked Yet"
-                                TextWrapping="Wrap"
-                                Height="Auto"
-                                x:Name="txtMacroOutput" Grid.ColumnSpan="2"/>
-                </Grid>
+                <TextBlock  Text="By Gabe the Babe!"
+                            HorizontalAlignment="Center"/>
             </StackPanel>
+
+            <Grid Grid.Row="1">
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+            
+                <StackPanel Width="400"
+                            Grid.Column="1"
+                            HorizontalAlignment="Right">
+
+                    <Grid VerticalAlignment="Center"
+                          HorizontalAlignment="Stretch">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock  Text="Name: "
+                                    VerticalAlignment="Center"/>
+
+                        <TextBox    VerticalAlignment="Center"
+                                    Grid.Column="1"
+                                    PlaceholderText="Arrow of Dusk"
+                                    x:Name="txtSpellName"/>
+                    </Grid>
+
+                    <Grid VerticalAlignment="Center"
+                          HorizontalAlignment="Stretch">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock  Text="School: "
+                                    VerticalAlignment="Center"/>
+
+                        <ComboBox Grid.Column="1"
+                                  HorizontalAlignment="Stretch"
+                                  x:Name="cboSpellSchool"
+                                  DisplayMemberPath="Name"
+                                  SelectionChanged="CboSpellSchoolChanged"/>
+                    </Grid>
+
+                    <Grid VerticalAlignment="Center"
+                          HorizontalAlignment="Stretch">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="32"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock  Text="Sub-School(s): "
+                                    VerticalAlignment="Center"/>
+
+                        <TextBlock x:Name="lblEmptySubSchool"
+                                   Grid.Row="1"
+                                   Grid.Column="1"
+                                   Height="0"
+                                   Text="Selected school has no subschools."/>
+
+                        <ListView x:Name="lvSubSchool" 
+                                  SelectionMode="Multiple"
+                                  Grid.Row="1"
+                                  Grid.Column="1"/>
+
+                        <StackPanel Grid.Column="1"
+                                    Orientation="Horizontal">
+
+                            <RadioButton Content="Show"
+                                         GroupName="radSubSchools"
+                                         Checked="RadSubSchoolChecked"
+                                         x:Name="radSubSchoolShow"/>
+
+                            <RadioButton Content="Hide"
+                                         IsChecked="True"
+                                         GroupName="radSubSchools"
+                                         Checked="RadSubSchoolChecked"
+                                         x:Name="radSubSchoolHide"/>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid VerticalAlignment="Center"
+                          HorizontalAlignment="Stretch">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="32"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock  Text="Spell Descriptor(s): "
+                                    VerticalAlignment="Center"/>
+
+                        <ScrollViewer Grid.Column="1"
+                                      Grid.ColumnSpan="2"
+                                      Grid.Row="1"
+                                      x:Name="scrollDescriptor"
+                                      MinHeight="0"
+                                      MaxHeight="200"
+                                      Height="0">
+                            
+                            <ListView x:Name="lvSpellDescriptor" 
+                                      SelectionMode="Multiple"
+                                      DisplayMemberPath="Name"/>
+                        </ScrollViewer>
+
+                        <StackPanel Grid.Column="1"
+                                    Orientation="Horizontal">
+
+                            <RadioButton Content="Show"
+                                         GroupName="radSpellDescriptors"
+                                         Checked="RadSpellDescriptorChecked"
+                                         x:Name="radSepllDescriptorShow"/>
+
+                            <RadioButton Content="Hide"
+                                         IsChecked="True"
+                                         GroupName="radSpellDescriptors"
+                                         Checked="RadSpellDescriptorChecked"
+                                         x:Name="radSepllDescriptorHide"/>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid VerticalAlignment="Center"
+                          HorizontalAlignment="Stretch">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock  Text="Spell Level: "
+                                    VerticalAlignment="Center"/>
+
+                        <ComboBox Grid.Column="1"
+                                  HorizontalAlignment="Stretch"
+                                  x:Name="cboSpellLevel"
+                                  DisplayMemberPath="Name"/>
+                    </Grid>
+
+                    <Grid VerticalAlignment="Center"
+                          HorizontalAlignment="Stretch">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock  Text="Caster Class: "
+                                    VerticalAlignment="Center"/>
+
+                        <ComboBox Grid.Column="1"
+                                  HorizontalAlignment="Stretch"
+                                  x:Name="cboCasterClass"
+                                  DisplayMemberPath="DisplayName"/>
+
+                    </Grid>
+
+                    <Grid VerticalAlignment="Center"
+                          HorizontalAlignment="Stretch">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock  Text="Components: "
+                                    VerticalAlignment="Center"/>
+
+                        <TextBox    VerticalAlignment="Center"
+                                    Grid.Column="1"
+                                    PlaceholderText="V, S, M (a drop of blood), F, DF, XP"
+                                    x:Name="txtComponents"/>
+                    </Grid>
+
+                    <Grid VerticalAlignment="Center"
+                          HorizontalAlignment="Stretch">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock  Text="Casting Time: "
+                                    VerticalAlignment="Center"/>
+
+                        <ComboBox   VerticalAlignment="Center"
+                                    Grid.Column="1"
+                                    HorizontalAlignment="Stretch"
+                                    x:Name="cboCastingTime"
+                                    DisplayMemberPath="Name"/>
+                    </Grid>
+
+                    <Grid VerticalAlignment="Center"
+                          HorizontalAlignment="Stretch"
+                          x:Name="grdSpellRange">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width=".5*"
+                                              x:Name="grdRangeColumn2"/>
+                            <ColumnDefinition Width="1.5*"
+                                              x:Name="grdRangeColumn3"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock  Text="Range: "
+                                    VerticalAlignment="Center"/>
+
+                        <TextBox    VerticalAlignment="Center"
+                                    PlaceholderText="15"
+                                    Grid.Column="1"
+                                    x:Name="txtRangeFeet"/>
+
+                        <ComboBox   x:Name="cboSpellRange"
+                                    Grid.Column="2"
+                                    HorizontalAlignment="Stretch"
+                                    SelectionChanged="CboSpellRangeChanged"
+                                    DisplayMemberPath="Name"/>
+                    </Grid>
+
+                    <Grid VerticalAlignment="Center"
+                          HorizontalAlignment="Stretch">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock  Text="Aim: "
+                                    VerticalAlignment="Center"/>
+
+                        <TextBox    VerticalAlignment="Center"
+                                    PlaceholderText="Target(s), Effect, Ray, Area, Cone, etc."
+                                    Grid.Column="1"
+                                    x:Name="txtAim"/>
+                    </Grid>
+
+                    <Grid VerticalAlignment="Center"
+                          HorizontalAlignment="Stretch">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock  Text="Duration: "
+                                    VerticalAlignment="Center"/>
+
+                        <TextBox    VerticalAlignment="Center"
+                                    Grid.Column="1"
+                                    PlaceholderText="1 Minute/Caster Level"
+                                    x:Name="txtDuration"/>
+                    </Grid>
+
+                    <Grid VerticalAlignment="Center"
+                          HorizontalAlignment="Stretch">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width=".8*"/>
+                            <ColumnDefinition Width="1.2*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock  Text="Saving Throw: "
+                                    VerticalAlignment="Center"/>
+
+                        <ComboBox   Grid.Column="1"
+                                    HorizontalAlignment="Stretch"
+                                    x:Name="cboSaveType"
+                                    DisplayMemberPath="Name"/>
+
+                        <ComboBox   Grid.Column="2"
+                                    HorizontalAlignment="Stretch"
+                                    x:Name="cboSavingThrowFailure"
+                                    DisplayMemberPath="Name"/>
+                    </Grid>
+
+                    <Grid VerticalAlignment="Center"
+                          HorizontalAlignment="Stretch">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock  Text="DC Formula: "
+                                    VerticalAlignment="Center"/>
+
+                        <StackPanel Grid.Column="1"
+                                    Grid.ColumnSpan="2"
+                                    Orientation="Horizontal">
+
+                            <RadioButton Content="Spell / SLA"
+                                         IsChecked="True"
+                                         GroupName="radDCFormula"
+                                         x:Name="radDCSpell"/>
+
+                            <RadioButton Content="Supernatural"
+                                         GroupName="radDCFormula"
+                                         x:Name="radDCSupernatural"/>
+                        </StackPanel>
+                    </Grid>
+                
+                    <Grid VerticalAlignment="Center"
+                          HorizontalAlignment="Stretch">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock  Text="Spell Resistance: "
+                                    VerticalAlignment="Center"/>
+
+                        <ComboBox   VerticalAlignment="Center"
+                                    HorizontalAlignment="Stretch"
+                                    Grid.Column="1"
+                                    x:Name="cboSpellResistance">
+                            <ComboBoxItem Content="Yes"  Tag="Yes" IsSelected="True"/>
+                            <ComboBoxItem Content="No" Tag="No"/>
+                        </ComboBox>
+                    </Grid>
+
+                    <Grid VerticalAlignment="Center"
+                          HorizontalAlignment="Stretch">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="133*"/>
+                            <ColumnDefinition Width="69*"/>
+                            <ColumnDefinition Width="199*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock  Text="Attack: "
+                                    VerticalAlignment="Center"
+                                    x:Name="txtAttack"/>
+
+                        <ComboBox   HorizontalAlignment="Stretch"
+                                    Grid.Column="1"
+                                    x:Name="cboAttackRoll"
+                                    DisplayMemberPath="Name" Grid.ColumnSpan="2" VerticalAlignment="Center">
+                            <ComboBoxItem Content="Melee" Tag="melee"/>
+                            <ComboBoxItem Content="Ranged" Tag="ranged"/>
+                        </ComboBox>
+                    </Grid>
+
+                    <Grid VerticalAlignment="Center"
+                          HorizontalAlignment="Stretch">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width=".5*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock  Text="Damage: "
+                                    VerticalAlignment="Center"/>
+
+                        <TextBox    VerticalAlignment="Stretch"
+                                    Grid.Column="1"
+                                    Height="Auto"
+                                    PlaceholderText="@{casterLevel}d6, 1d4 + 5"
+                                    x:Name="txtDamage"/>
+
+                        <ComboBox x:Name="cboDamageType"
+                                  Grid.Column="2"
+                                  HorizontalAlignment="Stretch"
+                                  DisplayMemberPath="Name"/>
+                    </Grid>
+
+                    <Grid VerticalAlignment="Center"
+                          HorizontalAlignment="Stretch">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock  Text="Description: "
+                                    VerticalAlignment="Center" Grid.ColumnSpan="2"/>
+
+                        <TextBox    TextWrapping="Wrap"
+                                    Grid.Column="1"
+                                    Height="Auto"
+                                    x:Name="txtDescription"/>
+                    </Grid>
+
+                    <Grid VerticalAlignment="Center"
+                          HorizontalAlignment="Stretch">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Button Content="Create"
+                                Grid.Column="0"
+                                HorizontalAlignment="Stretch"
+                                Click="MacroCreateClick"
+                                x:Name="btnCreateMacro"/>
+                        <Button Content="Clear"
+                                Grid.Column="1"
+                                HorizontalAlignment="Stretch"/>
+                    </Grid>
+
+                </StackPanel>
+
+                <StackPanel Width="400"
+                        Grid.Column="3"
+                        HorizontalAlignment="Left">
+
+                    <Grid VerticalAlignment="Center"
+                          HorizontalAlignment="Stretch">
+
+                        <TextBlock Text="Macro Output:"/>
+                    </Grid>
+                    
+                    <Grid VerticalAlignment="Center"
+                          HorizontalAlignment="Stretch">
+
+                        <ScrollViewer HorizontalAlignment="Stretch"
+                                      MaxHeight="102">
+
+                            <TextBox    Text=""
+                                        PlaceholderText="Press create once to generate a roll 20 attribute to be used for the macro. Select all using ctrl + a as output may extend below output window."
+                                        TextWrapping="Wrap"
+                                        Height="Auto"
+                                        x:Name="txtMacroOutput"
+                                        MinHeight="100"/>
+                        </ScrollViewer>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+
+            
         </Grid>
     </ScrollViewer>
 </Page>

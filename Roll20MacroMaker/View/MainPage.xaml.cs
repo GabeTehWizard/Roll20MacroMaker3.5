@@ -62,10 +62,12 @@ namespace Roll20MacroMaker.View
                 if (radioButton == radSepllDescriptorHide)
                 {
                     lvSpellDescriptor.Height = 0;
+                    scrollDescriptor.Height = 0;
                 }
                 else
                 {
                     lvSpellDescriptor.Height = double.NaN;
+                    scrollDescriptor.Height = double.NaN;
                 }
             }
         }
