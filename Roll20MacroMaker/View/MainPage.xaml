@@ -460,7 +460,8 @@
                     <Grid VerticalAlignment="Center"
                           HorizontalAlignment="Stretch">
 
-                        <TextBlock Text="Macro Output:"/>
+                        <TextBlock Text="Spell Attribute Output:"
+                                   Margin="0,0,0,1"/>
                     </Grid>
                     
                     <Grid VerticalAlignment="Center"
@@ -476,6 +477,167 @@
                                         x:Name="txtMacroOutput"
                                         MinHeight="100"/>
                         </ScrollViewer>
+                    </Grid>
+
+                    <Grid VerticalAlignment="Center"
+                          HorizontalAlignment="Stretch">
+
+                        <TextBlock Text="Nested Spell Attribute Output:"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"
+                                   Margin="0,5,0,1"/>
+                    </Grid>
+
+                    <Grid VerticalAlignment="Center"
+                          HorizontalAlignment="Stretch">
+
+                        <ScrollViewer HorizontalAlignment="Stretch"
+                                      MaxHeight="34">
+
+                            <TextBox    Text=""
+                                        PlaceholderText="Output for nested macros (Macro inside of a macro)"
+                                        TextWrapping="Wrap"
+                                        Height="Auto"
+                                        x:Name="txtMacroOutputNested1"
+                                        MinHeight="32"/>
+                        </ScrollViewer>
+                    </Grid>
+                    <Grid VerticalAlignment="Center"
+                          HorizontalAlignment="Stretch">
+                        <StackPanel>
+                            <TextBlock Text="Required Attributes*"
+                                   FontSize="20"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"
+                                   Margin="0,5,0,0"/>
+                            <TextBlock Text="Disregard if these have already been added to your character sheet*"
+                                   FontSize="11"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left" Foreground="Gray"/>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                
+                                <TextBox    Grid.Column="0"
+                                            Text="totalBAB"/>
+
+                                <TextBlock  Grid.Column="1"
+                                            Text="Your custom value here. (Min 0)"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"/>
+
+                                <TextBox    Grid.Column="0"
+                                            Grid.Row="1"
+                                            Text="scLevel"/>
+
+                                <TextBlock  Grid.Column="1"
+                                            Grid.Row="1"
+                                            Text="Your custom value here. (Min 0)"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"/>
+
+                                <TextBox    Grid.Column="0"
+                                            Grid.Row="2"
+                                            Text="itemDCBonus"/>
+
+                                <TextBlock  Grid.Column="1"
+                                            Grid.Row="2"
+                                            Text="Your custom value here. (Min 0)"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"/>
+
+                                <TextBox    Grid.Column="0"
+                                            Grid.Row="3"
+                                            Text="featDCBonus"/>
+
+                                <TextBlock  Grid.Column="1"
+                                            Grid.Row="3"
+                                            Text="Your custom value here. (Min 0)"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"/>
+                                
+                                <TextBox    Grid.Column="0"
+                                            Grid.Row="4"
+                                            Text="spellDC"/>
+
+                                <TextBox    Grid.Column="1"
+                                            Grid.Row="4"
+                                            HorizontalAlignment="Stretch"
+                                            Text="[[10 + @{casting-mod} + @{itemDCBonus} + @{featDCBonus}]]"
+                                            VerticalAlignment="Center"
+                                            TextAlignment="Center"/>
+
+                                <TextBox    Grid.Column="0"
+                                            Grid.Row="5"
+                                            Text="supernaturalDC"/>
+
+                                <TextBox    Grid.Column="1"
+                                            Grid.Row="5"
+                                            HorizontalAlignment="Stretch"
+                                            Text="[[10 + floor(@{scLevel} / 2) + @{casting-mod}]]"
+                                            VerticalAlignment="Center"
+                                            TextAlignment="Center"/>
+
+                                <TextBox    Grid.Column="0"
+                                            Grid.Row="6"
+                                            Text="meleeAttackRoll"/>
+
+                                <TextBox    Grid.Column="1"
+                                            Grid.Row="6"
+                                            HorizontalAlignment="Stretch"
+                                            Text="[[1d20 + @{totalBAB} + @{str-mod}]]"
+                                            VerticalAlignment="Center"
+                                            TextAlignment="Center"/>
+
+                                <TextBox    Grid.Column="0"
+                                            Grid.Row="7"
+                                            Text="rangedAttackRoll"/>
+
+                                <TextBox    Grid.Column="1"
+                                            Grid.Row="7"
+                                            HorizontalAlignment="Stretch"
+                                            Text="[[1d20 + @{totalBAB} + @{dex-mod} + @{rangedAttackBonus}]]"
+                                            VerticalAlignment="Center"
+                                            TextAlignment="Center"/>
+
+                                <TextBlock  Grid.ColumnSpan="2"
+                                            FontSize="20"
+                                            Text="Macro Example"
+                                            Grid.Row="8"/>
+
+                                <TextBox    Text="Single-Ability-Macro"
+                                            Grid.Row="9"/>
+
+                                <TextBox    Grid.Row="9"
+                                            Grid.Column="1"
+                                            Text="@{YourCharacterName|Spell-Attribute-Name}"/>
+
+                                <TextBox    Grid.Row="10"
+                                            Text="Choice-Macro"/>
+                                
+                                <TextBox    Grid.Row="10"
+                                            Grid.Column="1"
+                                            Text="?{Select Spell | Spell Name 1,@{YourCharacterName|Spell-Attribute-Name} |Spell Name 2,@{YourCharacterName|Spell-Attribute-Name2}}"/>
+                            </Grid>
+                        </StackPanel>
                     </Grid>
                 </StackPanel>
             </Grid>
