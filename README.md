@@ -17,7 +17,7 @@ Roll20MacroMaker3.5 is an application designed to simplify the creation of text-
 
 1. Clone the repository: https://github.com/your-username/Roll20MacroMaker3.5.git
 
-2. Open the solution file `Roll20MacroMaker3.5.sln` in Visual Studio.
+2. Open the solution file `Roll20MacroMaker.sln` in Visual Studio.
 
 3. Build the solution in Visual Studio to restore the necessary dependencies.
 
